@@ -1,0 +1,15 @@
+// Основная разметка страницы (контейнеры, сетка, глобальные отступы, основные стили )
+@use "../base/variables" as *;
+
+body {
+    font-family: $font-primary;
+    color: $text-color;
+    padding: 0 160px 74px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 151px;
+}

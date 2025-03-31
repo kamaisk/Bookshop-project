@@ -1,0 +1,48 @@
+@use "../base/variables" as *;
+
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // min-height: 116px;
+    min-height: 7.5rem;
+    font-family: $font-secondary;
+}
+
+.logo {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xlarge;
+    color: $highlighted-color;
+}
+
+.nav-menu {
+    ul {
+        display: flex;
+        gap: 2.5rem;
+        font-weight: $font-weight-black;
+        font-size: $font-size-text;
+        text-transform: uppercase;
+    }
+}
+
+.nav-icons {
+    display: flex;
+    gap: 2.5rem;
+
+    .cart-icon {
+        position: relative;
+
+        &__count {
+            position: absolute;
+            top: 9px;
+            right: -8px;
+            padding: 1px 5px;
+            min-width: 13px;
+            border-radius: 50%;
+            color: #FFFFFF;
+            background-color: #FF353A;
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@use "../base/variables" as *;
+
+// .categories {
+//     position: relative;
+// }
+
+// .categories-wrapper {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 416px;
+//     height: 710px;
+//     background-color: #EFEEF6;
+//     z-index: -1;
+// }
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 23px;
+    font-family: $font-secondary;
+    font-size: $font-size-small;
+    color: $text-color;
+    z-index: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        width: 416px;
+        height: 710px;
+        background-color: #EFEEF6;
+        z-index: -1;
+    }
+
+    li {
+        cursor: pointer;
+    }
+}

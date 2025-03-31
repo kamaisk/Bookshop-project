@@ -1,0 +1,23 @@
+//- //- External variables
+//- block variables
+
+doctype html
+html(lang= 'ru')
+    head
+        meta(charset='utf-8')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title #{title}
+        block style
+            link(rel="stylesheet" href="Styles/main.scss")
+
+    body
+        include ../components/header
+
+        main.main-content
+            block content
+
+        include ../components/footer
+
+        block script
+
+

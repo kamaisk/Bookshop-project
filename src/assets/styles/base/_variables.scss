@@ -1,0 +1,65 @@
+// Шрифты
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Montserrat") url("../../fonts/Montserrat/Montserrat-Black.woff2") format("woff2"),
+        url("../../fonts/Montserrat/Montserrat-Black.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Montserrat") url("../../fonts/Montserrat/Montserrat-Bold.woff2") format("woff2"),
+        url("../../fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Montserrat") url("../../fonts/Montserrat/Montserrat-Medium.woff2") format("woff2"),
+        url("../../fonts/Montserrat/Montserrat-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Open Sans") url("../../fonts/Open_Sans/OpenSans-Regular.woff2") format("woff2"),
+        url("../../fonts/Open_Sans/OpenSans-Regular.woff") format("woff");
+}
+
+// Переменные для цветов, шрифтов, размеров
+$font-primary: "Open Sans", sans-serif;
+$font-secondary: "Montserrat", sans-serif;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+$font-size-xlarge: 24px;
+$font-size-base: 16px;
+$font-size-small: 12px;
+$font-size-text: 10px;
+$font-size-button: 8px;
+// $line-height-base: 1.5;
+
+$text-color: #5C6A79;
+$highlighted-color: #1C2A39;
+$primary-color-btn: #4C3DB2;
+$secondary-color-btn: #5C6A79;
+$star-color: #F2C94C;
+$star-empty-color: #EEEDF5;
+
+$spacing-small: 8px;
+$spacing-base: 16px;
+$spacing-large: 24px;
+$spacing-xlarge: 24px;
+
+$border-radius: 5px;
+$border-width: 1px;
+$button-height: 45px;
+
+$card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$btn-hover-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

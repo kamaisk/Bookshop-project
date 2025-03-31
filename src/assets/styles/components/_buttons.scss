@@ -1,0 +1,21 @@
+@use "../base/variables" as *;
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 60px;
+    font-family: $font-secondary;
+    font-size: $font-size-button;
+    font-weight: $font-weight-bold;
+    border: $border-width solid $primary-color-btn;
+    color: $primary-color-btn;
+    background-color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-cart {
+    border-color: $secondary-color-btn;
+    color: $secondary-color-btn;
+}
