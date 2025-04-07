@@ -1,18 +1,8 @@
 @use "../base/variables" as *;
 
-// .categories {
-//     position: relative;
-// }
-
-// .categories-wrapper {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 416px;
-//     height: 710px;
-//     background-color: #EFEEF6;
-//     z-index: -1;
-// }
+.categories {
+    grid-area: categories;
+}
 
 .categories-list {
     display: flex;
@@ -22,6 +12,7 @@
     gap: 23px;
     font-family: $font-secondary;
     font-size: $font-size-small;
+    font-weight: $font-weight-medium;
     color: $text-color;
     z-index: 0;
 
@@ -36,6 +27,60 @@
     }
 
     li {
+        position: relative;
         cursor: pointer;
+
+        &.active {
+            font-size: $font-size-base;
+            font-weight: $font-weight-bold;
+            color: $highlighted-color;
+        }
+
+        &.active::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: -14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #756AD3;
+        }
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .categories-list::before {
+        width: 300px;
+    }
+}
+
+// @media screen and (max-width: 1024px) {
+//     .categories-list::before {
+//         width: 230px;
+//     }
+
+//     li.active {
+//         font-size: $font-size-medium;
+//     }
+// }
+
+@media screen and (max-width: 768px) {
+    .categories-list::before {
+        width: 180px;
+    }
+
+    li.active {
+        font-size: $font-size-small;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .categories-list::before {
+        width: 150px;
+    }
+
+    li.active {
+        font-size: $font-size-small;
     }
 }

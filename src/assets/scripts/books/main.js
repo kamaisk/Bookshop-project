@@ -7,6 +7,16 @@ import {
   clearCart,
 } from "./storage";
 
+import cover1 from "Images//png/cover/cover1.png";
+import cover2 from "Images//png/cover/cover2.png";
+import cover3 from "Images//png/cover/cover3.png";
+import cover4 from "Images//png/cover/cover4.png";
+import cover5 from "Images//png/cover/cover5.png";
+import cover6 from "Images//png/cover/cover6.png";
+
+// Так как API не возвращает обложку, подставим вместо неё рандомную картинку-плейсхолдер из массива
+const covers = [cover1, cover2, cover3, cover4, cover5, cover6];
+
 const booksContainer = document.querySelector(".books-wrapper");
 const cartIcon = document.querySelector(".cart-icon");
 const categoriesList = document.querySelector(".categories-list");
@@ -31,6 +41,24 @@ async function loadBooks(category, reset = true) {
   }
 }
 
+// Функция для добавления активной категории книги
+function updateActiveCategory(selectedCategory) {
+  const categoriesItems = document.querySelectorAll(".categories-list li");
+  categoriesItems.forEach((item) => {
+    if (item.dataset.category === selectedCategory) {
+      item.classList.add("active");
+    } else {
+      item.classList.remove("active");
+    }
+  });
+}
+
+// Функция для случайного выбора обложки книги из массива
+function getRandomCover() {
+  const randomIndex = Math.floor(Math.random() * covers.length);
+  return covers[randomIndex];
+}
+
 // Функция для отображения книг
 function displayBooks(books) {
   const cart = loadFromStorage("cartItems");
@@ -39,16 +67,19 @@ function displayBooks(books) {
       const volumeInfo = book.volumeInfo;
       const saleInfo = book.saleInfo;
       const bookId = book.id;
+      console.log(book);
 
       // Обложка
-      const cover =
-        "https://api.interior.ru/media/resize/1500/images/setka/2021_04_14/Porter_01.jpg.webp";
+      const cover = getRandomCover();
       // Авторы
       const authors = volumeInfo.authors
         ? volumeInfo.authors.join(", ")
         : "Неизвестный автор";
       // Заголовок
-      const title = volumeInfo.title || "Без названия";
+      let title = volumeInfo.title || "Без названия";
+      if (title.length > 30) {
+        title = title.substring(0, 30) + "...";
+      }
       // Рейтинг
       let ratingHtml = "";
       if (volumeInfo.averageRating) {
@@ -63,8 +94,8 @@ function displayBooks(books) {
       }
       // Описание
       let description = volumeInfo.description || "Описание отсутствует";
-      if (description.length > 100) {
-        description = description.substring(0, 100) + "...";
+      if (description.length > 80) {
+        description = description.substring(0, 80) + "...";
       }
       // Цена
       let priceHtml = "";
@@ -142,6 +173,7 @@ loadMoreBtn.addEventListener("click", () => {
 categoriesList.addEventListener("click", (event) => {
   if (event.target.tagName === "LI") {
     currentCategory = event.target.dataset.category;
+    updateActiveCategory(currentCategory);
     loadBooks(currentCategory);
   }
 });
@@ -149,5 +181,6 @@ categoriesList.addEventListener("click", (event) => {
 // Загрузка первой категории при запуске
 document.addEventListener("DOMContentLoaded", () => {
   updateCartIcon(loadFromStorage("cartItems").length);
+  updateActiveCategory(currentCategory);
   loadBooks(currentCategory);
 });

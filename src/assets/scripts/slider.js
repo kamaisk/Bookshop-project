@@ -186,7 +186,7 @@ let sliderOptions = {
   dots: true,
   arrows: false,
   description: false,
-  false: true,
+  autoplay: true,
   interval: 5000,
 };
 

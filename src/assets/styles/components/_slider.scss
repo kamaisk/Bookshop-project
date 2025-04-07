@@ -1,4 +1,7 @@
+@use "../base/variables" as *;
+
 .slider {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +17,7 @@
     position: relative;
     // max-width: 1120px;
     width: 100%;
-    height: 702px;
+    height: 650px;
     // height: 100%;
     // height: 60vh;
 
@@ -56,5 +59,153 @@
     &:hover,
     &.active {
         background-color: #9E98DC;
+    }
+}
+
+@mixin blockLink($block-background-color) {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    padding: 20px;
+    font-family: $font-secondary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-large;
+    background-color: $block-background-color;
+    color: $highlighted-color;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+
+    .arrow {
+        width: 55px;
+        height: 12px;
+    }
+}
+
+.block-link-first {
+    @include blockLink(#9E98DC);
+    top: 79px;
+    // left: 1059px;
+    right: -90px;
+    width: 149px;
+    height: 204px;
+}
+
+.block-link-second {
+    @include blockLink(#FF8FE6);
+    top: 359px;
+    // left: 1143px;
+    right: -160px;
+    width: 137px;
+    height: 273px;
+
+    p {
+        display: block;
+        width: 69px;
+
+        span {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 1439px) {
+    .slider__images {
+        height: 580px;
+    }
+
+    .block-link-first {
+        right: -80px;
+    }
+
+    .block-link-second {
+        right: -80px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .slider__images {
+        height: 400px;
+    }
+
+    .block-link-first {
+        top: 30px;
+        right: -40px;
+        width: 110px;
+        height: auto;
+        font-size: $font-size-base;
+    }
+
+    .block-link-second {
+        top: 250px;
+        right: -50px;
+        width: 90px;
+        height: auto;
+        font-size: $font-size-base;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slider__images {
+        height: 300px;
+    }
+
+    .block-link-first {
+        top: 5px;
+        right: -30px;
+        width: 70px;
+        padding: 10px;
+        font-size: $font-size-small;
+
+        .arrow {
+            width: 40px;
+        }
+    }
+
+    .block-link-second {
+        top: 170px;
+        right: -30px;
+        width: 60px;
+        padding: 10px;
+        font-size: $font-size-small;
+
+        .arrow {
+            width: 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .slider__images {
+        height: 250px;
+    }
+
+    .block-link-first {
+        top: 5px;
+        right: -20px;
+        width: 65px;
+        padding: 5px;
+        font-size: $font-size-text;
+
+        .arrow {
+            width: 35px;
+            height: 12px;
+        }
+    }
+
+    .block-link-second {
+        top: 170px;
+        right: -20px;
+        width: 50px;
+        padding: 5px;
+        font-size: $font-size-text;
+
+        .arrow {
+            width: 35px;
+            height: 12px;
+        }
     }
 }

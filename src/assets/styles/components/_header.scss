@@ -2,7 +2,7 @@
 
 .navigation-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     // min-height: 116px;
     min-height: 7.5rem;
@@ -19,9 +19,15 @@
     ul {
         display: flex;
         gap: 2.5rem;
-        font-weight: $font-weight-black;
+        font-weight: $font-weight-bold;
         font-size: $font-size-text;
+        color: $text-color;
         text-transform: uppercase;
+    }
+
+    &__link.active {
+        font-weight: $font-weight-black;
+        color: $highlighted-color;
     }
 }
 
@@ -44,5 +50,11 @@
             font-size: 13px;
             text-align: center;
         }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        display: none;
     }
 }

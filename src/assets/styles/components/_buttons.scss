@@ -1,21 +1,47 @@
 @use "../base/variables" as *;
 
-.btn {
+@mixin button($color) {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 17px 60px;
+    padding: 17px 30px;
     font-family: $font-secondary;
     font-size: $font-size-button;
     font-weight: $font-weight-bold;
-    border: $border-width solid $primary-color-btn;
-    color: $primary-color-btn;
+    border: $border-width solid $color;
+    color: $color;
     background-color: transparent;
     text-transform: uppercase;
     cursor: pointer;
 }
 
+.btn-buy {
+    @include button($primary-color-btn);
+}
+
 .btn-cart {
-    border-color: $secondary-color-btn;
-    color: $secondary-color-btn;
+    @include button($secondary-color-btn);
+}
+
+.btn-load-more {
+    @include button($primary-color-btn);
+}
+
+@media screen and (max-width: 1024px) {
+
+    .btn-buy,
+    .btn-cart,
+    .btn-load-more {
+        padding: 17px 30px;
+    }
+}
+
+
+@media screen and (max-width: 414px) {
+
+    .btn-buy,
+    .btn-cart,
+    .btn-load-more {
+        padding: 17px 20px;
+    }
 }

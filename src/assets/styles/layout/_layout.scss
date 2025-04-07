@@ -1,15 +1,70 @@
 // Основная разметка страницы (контейнеры, сетка, глобальные отступы, основные стили )
 @use "../base/variables" as *;
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $background-color;
+}
+
 body {
     font-family: $font-primary;
+    // padding: 0 160px 74px;
     color: $text-color;
+    background-color: $background-color;
+}
+
+.main-content {
     padding: 0 160px 74px;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: start;
+    // position: relative;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-template-areas: "categories books";
     margin-top: 151px;
+}
+
+@media screen and (max-width: 1439px) {
+    .main-content {
+        padding: 0 80px 74px;
+    }
+
+    .container {
+        grid-template-columns: 20% 1fr;
+        margin-top: 120px;
+    }
+}
+
+// @media screen and (max-width: 1024px) {
+//     .main-content {
+//         padding: 0 50px 74px;
+//     }
+// }
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 0 30px 54px;
+    }
+
+    .container {
+        margin-top: 80px;
+        gap: 40px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .main-content {
+        padding: 0 20px 54px;
+    }
+
+    .container {
+        margin-top: 70px;
+        gap: 30px;
+    }
 }

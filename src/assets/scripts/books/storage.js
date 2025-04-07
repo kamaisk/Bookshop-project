@@ -35,9 +35,9 @@ export function updateCartIcon(count) {
 
   if (count > 0) {
     cartCount.textContent = count;
-    cartCount.computedStyleMap.display = "block";
+    cartCount.style.display = "block";
   } else {
-    cartCount.computedStyleMap.display = "none";
+    cartCount.style.display = "none";
   }
 }
 

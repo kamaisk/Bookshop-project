@@ -1,5 +1,7 @@
 const path = require("path");
 const PugPlugin = require("pug-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   // entry: "./src/index.js",
@@ -19,9 +21,17 @@ module.exports = {
     },
   },
 
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(), // Минификатор для JavaScript
+      new CssMinimizerPlugin(), // Минификатор для CSS
+    ],
+  },
+
   plugins: [
     new PugPlugin({
-      pretty: "auto",
+      pretty: "auto", // false, если нужно минификация html
       entry: {
         index: "./src/views/pages/index.pug", // => dist/index.html
         // about: './src/views/about.pug' // можно настроить несколько страниц
@@ -96,7 +106,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    // compress: false,
+    compress: true,
     port: 9000,
   },
 };
